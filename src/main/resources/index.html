@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>AREM</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+  </head>
+  <body>
+      
+
+      <script>
+          var media = function(){
+              if($("#numeros").val() != ""){
+                  var txt = $("#numeros").val();
+                  $.post("calculo",JSON.stringify({"num" : txt}) , function(data){
+                    document.getElementById("MediaYDesviacion").innerHTML=data;
+                  });
+              }
+          }
+      </script>
+    <h1>Amazon Gateway y Lambda</h1>
+    <form>
+    <div class="form-group">
+        <label for="numeros">Escriba el numero</label>
+        <input class="form-control" id="numeros" name="numeros" placeholder="Escriba los numeros">
+    </div>
+    <input type="button" id="sub" value="Calcular" onclick="media()" ></input>    
+    </form>
+
+    <div id="MediaYDesviacion">
+
+    </div>
+
+</body>
+</html>
